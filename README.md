@@ -732,9 +732,14 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 
 ***Questions:***
 
-1. What is the output of step 5 above, explain the error? ***(1 mark)*** __Fill answer here__.
-2. Show the instruction needed to make this work. ***(1 mark)*** __Fill answer here__.
+1. What is the output of step 5 above, explain the error? ***(1 mark)*** 
+```bash
+curl: (7) Failed to connect to localhost port 3000: Connection refused
+```
+- This error occurs because the Node.js application inside the Docker container is not accessible on port 3000 of localhost.
 
+2. Show the instruction needed to make this work. ***(1 mark)*** 
+- 
 
 
 ## What to submit

@@ -367,7 +367,7 @@ Linux codespaces-fc8dff 6.5.0-1022-azure #23~22.04.1-Ubuntu SMP Thu May  9 17:59
 11. What is the available free memory in the system. ***(1 mark)*** 
 - 5.9 GiB
 12. What is the available disk space mounted on /workspace. ***(1 mark)*** 
-- 22.5 GiB
+- 19.81 GiB.
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** 
 - Ubuntu 22.04.1 LTS with a kernel version of 6.5.0-1022-azure, x86_64 architecture (64-bit Intel/AMD).
 14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** 

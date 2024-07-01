@@ -604,7 +604,6 @@ Create a Docker network to for the two containers.
 For mysql, call it **mysqlnet** for nodejs call it **nodejsnet** .
 
 #### Step 2: Set Up the MySQL Container
-
 Run a MySQL container on the created network.
 
 ```sh

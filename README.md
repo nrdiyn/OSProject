@@ -365,19 +365,20 @@ MiB Swap:      0.0 total,      0.0 free,      0.0 used.   6065.1 avail Mem
 Linux codespaces-fc8dff 6.5.0-1022-azure #23~22.04.1-Ubuntu SMP Thu May  9 17:59:24 UTC 2024 x86_64 x86_64 x86_64 GNU/Linux
 ```
 11. What is the available free memory in the system. ***(1 mark)*** 
-- 
+- 5.9 GiB
 12. What is the available disk space mounted on /workspace. ***(1 mark)*** 
-- 
+- 22.5 GiB
 13. Name the version and hardware architecture of the linux Virtual environment. ***(1 mark)*** 
-- 
+- Ubuntu 22.04.1 LTS with a kernel version of 6.5.0-1022-azure, x86_64 architecture (64-bit Intel/AMD).
 14. What is the difference between **ls** vs **ls -asl**. ***(1 mark)*** 
-- 
+- ls -shows filenames and directories only.
+- ls -asl shows detailed information including sizes and permissions of all files, including hidden ones.
 15. What is the TLB size of the Virtual CPU. ***(1 mark)*** 
-- 
+- 2560 4K pages
 16. What is the CPU speed of the Virtual CPU. ***(1 mark)*** 
-- 
+- 2984.402 MHz
 17. What is the top running process that consumes the most CPU cycles. ***(1 mark)*** 
-- 
+- 6929 codespa+  20   0   21.5g 336728  49792 S   1.3   4.1   0:18.53 node  
 
 ## Running your own container instance.
 

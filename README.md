@@ -520,11 +520,32 @@ docker run -itd --net rednet --name c2 busybox sh
 ```
 ***Questions:***
 
-1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** __Fill answer here__.
-2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** __Fill answer here__.
-3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** __Fill answer here__.
-4. What is the network address for the running container c1 and c2? ***(1 mark)*** __Fill answer here__.
-5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
+1. Describe what is busybox and what is command switch **--name** is for? . ***(2 mark)*** 
+
+2. Explore the network using the command ```docker network ls```, show the output of your terminal. ***(1 mark)*** 
+NETWORK ID     NAME      DRIVER    SCOPE
+715294530ab6   bluenet   bridge    local
+e2c14e37687f   bridge    bridge    local
+6ee6fba16107   host      host      local
+ef7ba1c02c21   none      null      local
+2d66dcb7fd6e   rednet    bridge    local
+3. Using ```docker inspect c1``` and ```docker inspect c2``` inscpect the two network. What is the gateway of bluenet and rednet.? ***(1 mark)*** 
+- Gateaway
+network bluenet : 172.18.0.1
+network rednet : 172.19.0.1
+
+4. What is the network address for the running container c1 and c2? ***(1 mark)*** 
+- IP address 
+network bluenet : 172.18.0.2
+network rednet : 172.19.0.2
+
+5. Using the command ```docker exec c1 ping c2```, which basically tries to do a ping from container c1 to c2. Are you able to ping? Show your output . ***(1 mark)*** 
+- not able to ping 
+```bash
+ping: bad address 'c2'
+```
+No, the ping command fail because the two network
+ did not connect with each other so they can not communicate directly with each other.
 
 ## Bridging two SUB Networks
 1. Let's try this again by creating a network to bridge the two containers in the two subnetworks
@@ -536,8 +557,40 @@ docker exec c1 ping c2
 ```
 ***Questions:***
 
-1. Are you able to ping? Show your output . ***(1 mark)*** __Fill answer here__.
-2. What is different from the previous ping in the section above? ***(1 mark)*** __Fill answer here__.
+1. Are you able to ping? Show your output . ***(1 mark)*** 
+- yes the networks are able to ping. 
+```bash
+PING c2 (172.20.0.3): 56 data bytes
+64 bytes from 172.20.0.3: seq=0 ttl=64 time=0.153 ms
+64 bytes from 172.20.0.3: seq=1 ttl=64 time=0.081 ms
+64 bytes from 172.20.0.3: seq=2 ttl=64 time=0.081 ms
+64 bytes from 172.20.0.3: seq=3 ttl=64 time=0.094 ms
+64 bytes from 172.20.0.3: seq=4 ttl=64 time=0.103 ms
+64 bytes from 172.20.0.3: seq=5 ttl=64 time=0.072 ms
+64 bytes from 172.20.0.3: seq=6 ttl=64 time=0.084 ms
+64 bytes from 172.20.0.3: seq=7 ttl=64 time=0.065 ms
+64 bytes from 172.20.0.3: seq=8 ttl=64 time=0.068 ms
+64 bytes from 172.20.0.3: seq=9 ttl=64 time=0.065 ms
+64 bytes from 172.20.0.3: seq=10 ttl=64 time=0.074 ms
+64 bytes from 172.20.0.3: seq=11 ttl=64 time=0.066 ms
+64 bytes from 172.20.0.3: seq=12 ttl=64 time=0.099 ms
+64 bytes from 172.20.0.3: seq=13 ttl=64 time=0.081 ms
+64 bytes from 172.20.0.3: seq=14 ttl=64 time=0.096 ms
+64 bytes from 172.20.0.3: seq=15 ttl=64 time=0.068 ms
+64 bytes from 172.20.0.3: seq=16 ttl=64 time=0.074 ms
+64 bytes from 172.20.0.3: seq=17 ttl=64 time=0.090 ms
+64 bytes from 172.20.0.3: seq=18 ttl=64 time=0.065 ms
+64 bytes from 172.20.0.3: seq=19 ttl=64 time=0.070 ms
+64 bytes from 172.20.0.3: seq=20 ttl=64 time=0.091 ms
+64 bytes from 172.20.0.3: seq=21 ttl=64 time=0.073 ms
+64 bytes from 172.20.0.3: seq=22 ttl=64 time=0.079 ms
+64 bytes from 172.20.0.3: seq=23 ttl=64 time=0.068 ms
+64 bytes from 172.20.0.3: seq=24 ttl=64 time=0.069 ms
+64 bytes from 172.20.0.3: seq=25 ttl=64 time=0.072 ms
+64 bytes from 172.20.0.3: seq=26 ttl=64 time=0.067 ms
+```
+2. What is different from the previous ping in the section above? ***(1 mark)*** 
+- Then current command of ping is successful because the two container are bridging over a network command as above while the ping before did not have a bridging command to connect each other
 
 ## Intermediate Level (10 marks bonus)
 

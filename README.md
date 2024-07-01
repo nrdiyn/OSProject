@@ -591,7 +591,7 @@ PING c2 (172.20.0.3): 56 data bytes
 64 bytes from 172.20.0.3: seq=26 ttl=64 time=0.067 ms
 ```
 2. What is different from the previous ping in the section above? ***(1 mark)*** 
-- Then current command of ping is successful because the two container are bridging over a network command as above while the ping before did not have a bridging command to connect each other
+- The current command of ping is successful because the two container are bridging over a network command as above while the ping before did not have a bridging command to connect each other
 
 ## Intermediate Level (10 marks bonus)
 
@@ -737,10 +737,14 @@ You have now set up a Node.js application in a Docker container on nodejsnet net
 ```bash
 curl: (7) Failed to connect to localhost port 3000: Connection refused
 ```
-- This error occurs because the Node.js application inside the Docker container is not accessible on port 3000 of localhost.
+- This error occurs due to both of the container are not connected to each other and not been bridged together.
 
 2. Show the instruction needed to make this work. ***(1 mark)*** 
-- 
+```bash
+docker network create bridgenet
+docker network connect bridgenet mysql-container
+docker network connect bridgenet nodejs-container
+```
 
 
 ## What to submit
